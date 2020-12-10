@@ -1,4 +1,4 @@
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -74,6 +74,22 @@ class LinkedList {
     if (this.tail.value === value) {
       this.tail = currentNode
     }
+  }
+
+  deleteHead() {
+    if (!this.head) {
+      return null
+    }
+    const deletedHead = this.head
+
+    if (this.head.next) {
+      this.head = this.head.next
+    } else {
+      this.head = null
+      this.tail = null
+    }
+
+    return deletedHead
   }
 
   toArray() {
