@@ -49,26 +49,56 @@ class Graph {
   }
 }
 
-const graph = new Graph()
+const network = new Graph()
 
-graph.addNode(1, 'Sid')
-graph.addNode(2, 'Manuel')
-graph.addNode(3, 'Jules')
+network.addNode('sid', {
+  firstName: 'Sid',
+  lastName: 'Arcidiacono',
+  age: 23
+})
 
-graph.addEdge(1, 2)
-graph.addEdge(1, 3)
-graph.addEdge(3, 2)
+network.addNode('starlight', {
+  firstName: 'Starlight',
+  lastName: 'Romero',
+  age: 25
+})
 
-console.log(graph.hasEdge(3, 2))
-console.log(graph.hasEdge(2, 1))
+network.addNode('dino', {
+  firstName: 'Dino',
+  lastName: 'Martinez',
+  age: 45
+})
 
-console.log(graph.getAllEdges(1))
-console.log(graph.getAllEdges(2))
-console.log(graph.getAllEdges(3))
+network.addNode('yin', {
+  firstName: 'Yin',
+  lastName: 'Chang',
+  age: 28
+})
 
-graph.removeNode(2)
+network.addNode('philippos', {
+  firstName: 'Philippos',
+  lastName: 'Tasmantanis',
+  age: 100
+})
 
-// graph.removeEdge(2, 1)
-// graph.removeEdge(1, 2)
+network.addEdge('sid', 'starlight')
+network.addEdge('starlight', 'sid')
+network.addEdge('sid', 'dino')
+network.addEdge('dino', 'sid')
+network.addEdge('sid', 'yin')
+network.addEdge('yin', 'sid')
+network.addEdge('starlight', 'dino')
+network.addEdge('dino', 'starlight')
+network.addEdge('dino', 'yin')
+network.addEdge('yin', 'dino')
+network.addEdge('yin', 'philippos')
+network.addEdge('philippos', 'yin')
 
-console.log(graph)
+console.log(network)
+
+console.log(network.hasEdge('sid', 'starlight'))
+console.log(network.hasEdge('starlight', 'yin'))
+
+network.removeNode('starlight')
+
+console.log(network)
