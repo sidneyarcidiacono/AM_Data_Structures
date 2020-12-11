@@ -146,3 +146,9 @@ We want to avoid collisions as much as possible when implementing hash tables, b
 We can handle these collisions by chaining.
 
 In other words, we can leverage other built in data structures (or other custom ones, like Linked Lists if we choose) to chain out data from buckets with collisions so that we don't run into data loss or an unreliable hashing table.
+
+We can also use "Open Adressing" to handle collisions.
+
+This means if we hash an item and it wants to be placed in an index that is already filled, we find the next open slot or bucket in our table and insert the item there, instead.
+
+This requires a larger hash table, and a certain way of building our hash table so that we make sure we don't run out of space. 

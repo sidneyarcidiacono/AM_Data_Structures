@@ -1,7 +1,7 @@
 class HashTable {
   constructor() {
-    this.size = 100
-    this.buckets = Array(100).fill(null);
+    this.size = 16
+    this.buckets = Array(16).fill(null).map(() => []);
   }
 
   hash(key) {
@@ -13,28 +13,28 @@ class HashTable {
   }
 
   set(key, value) {
-    let keyHash = this.hash(key)
-    if (this.buckets[keyHash] === null || this.buckets[keyHash].key === key) {
-      this.buckets[keyHash] = {key: key, val: value}
+    const keyHash = this.hash(key)
+    const bucketArray = this.buckets[keyHash]
+
+    const storedElement = bucketArray.find((element) => {
+      return element.key === key
+    })
+
+    if (storedElement) {
+      storedElement.val = value
     } else {
-      while(this.buckets[keyHash] !== null) {
-        keyHash++
-      }
-      this.buckets[keyHash] = { key: key, val: value}
+      bucketArray.push({ key: key, val: value })
     }
   }
 
   get(key) {
     const keyHash = this.hash(key)
-    for (let i = keyHash; i < this.buckets.length; i++) {
-      if (!this.buckets[i]) {
-        continue
-      }
-      if (this.buckets[i].key === key) {
-        return this.buckers[i].val
-      }
-    }
-    return undefined
+    const bucketArray = this.buckets[keyHash]
+    const storedElement = bucketArray.find(element => {
+      return element.key === key
+    })
+
+    return storedElement
   }
 
   showInfo() {
