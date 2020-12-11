@@ -151,4 +151,42 @@ We can also use "Open Adressing" to handle collisions.
 
 This means if we hash an item and it wants to be placed in an index that is already filled, we find the next open slot or bucket in our table and insert the item there, instead.
 
-This requires a larger hash table, and a certain way of building our hash table so that we make sure we don't run out of space. 
+This requires a larger hash table, and a certain way of building our hash table so that we make sure we don't run out of space.
+
+### Hash Table Time Complexity:
+
+We're going to be comparing hash tables with arrays and with JavaScript objects. Keep in mind that since JavaScript objects ARE hash tables, you'll see a lot of equality. However, JS objects are really efficient hash tables that handle collisions really well.
+
+Element Access:
+
+    Hash Table: O(1) - O(n) with collisions (no matter if we use chaining or open addressing)
+    Object: O(1) - they still have to deal with hash collisions, they're just a bit more efficient than our implementation. We can generally assume constant time for this reason.
+    Arrays: O(1)
+
+Insertion at End:
+
+    There isn't really a start or an end, so let's just look at insertion in general.
+
+    Hash Table: O(n) since we have to deal with collision handling, so we have a tendency towards O(n)
+    Object: O(1) for the same reason as above, even though they also have to deal with collisions, they tend towards constant time.
+    Arrays: O(1)
+
+Search Elements:
+
+    Hash Table: O(1) - O(n) with lots of hash collision
+    Objects: O(1)
+    Arrays: O(n)
+
+Becasue JavaScript objects are implemented as hash tables, you don't really need to build your own hash tables in JavaScript.
+
+In other languages, though, you might not have the built in "object" data structure.
+
+It's also good to know these things for interviews.
+
+It always helps to understand how the language works internally.
+
+So now that we know all of this, should we just always use objects? (JAVASCRIPT OBJECTS ARE HASH TABLES) No, we'll get into this in a second.
+
+Managing key-value pairs leads to redundant code for some use-cases. Where you don't have data that really needs to be structured with keys, just coming up with an arbitrary key isn't really beneficial and increases overhead unnecessarily. Looping is also typically easier for arrays/lists, and whenever you need to go through all items (or a significant chunk) arrays or lists might be a good choice.
+
+For a lot of arrays/lists you don't need to do a lot of insertions at the beginning or middle or do a lot of searches. 
