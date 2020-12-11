@@ -136,3 +136,13 @@ Hash Table:
 You can see our firstRep and firstRepBasic algorithms to see how leveraging objects helps us write a better algorith.
 
 Sometimes it's also really useful for organizing data by keys and values, where we can find or retrieve values by keys.
+
+We want to be sure that our keys are assigned evenly and avoid performance loss in a structure that's generally supposed to improve or optimize performance. This is why we hash our keys rather than just taking our input as plain keys.
+
+**Collisions**
+
+We want to avoid collisions as much as possible when implementing hash tables, but sometimes its inevitable. In these instances, we have to figure out how to handle our collisions.
+
+We can handle these collisions by chaining.
+
+In other words, we can leverage other built in data structures (or other custom ones, like Linked Lists if we choose) to chain out data from buckets with collisions so that we don't run into data loss or an unreliable hashing table.
