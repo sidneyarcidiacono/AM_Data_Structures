@@ -52,3 +52,24 @@ meat    veggie    penne   other
 *Breadth*: The number of leaves in a tree
 
 *Size*: The total number of nodes in a tree (no matter where or how they're connected)
+
+### Tree Time Complexity:
+
+Access/Search:
+
+    Tree: Worst Case O(n) - if we need to visit all other nodes before accessing our element.
+    Array: O(1) with index, O(n) without
+
+Insertion:
+
+    Tree: O(n) worst case (for same reason as above)
+    Array: O(1) at end, O(n) at beginning
+
+Removal:
+
+    Tree: O(n) worst case (for same reasons)
+    Array: O(1) at end, O(n) at beginning
+
+So why use a tree?
+
+Well, although right now it doesn't look like there's really a performance advantage, there are more efficient types of trees. Also, time complexity isn't alway the reason to use one anyway. You may want to use a tree for a use case similar to the dummy file tree we implemented in tree.js, where it makes sense to represent your data that way.
