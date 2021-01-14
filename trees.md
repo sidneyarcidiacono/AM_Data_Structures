@@ -73,3 +73,13 @@ Removal:
 So why use a tree?
 
 Well, although right now it doesn't look like there's really a performance advantage, there are more efficient types of trees. Also, time complexity isn't alway the reason to use one anyway. You may want to use a tree for a use case similar to the dummy file tree we implemented in tree.js, where it makes sense to represent your data that way.
+
+### Traversing a Tree
+
+##### Depth-First
+
+Dig into the tree first and explore sibling trees step by step
+
+##### Breadth-First
+
+Evaluate all sibling values first before your dig into the tree in depth.
