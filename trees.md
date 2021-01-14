@@ -76,9 +76,17 @@ Well, although right now it doesn't look like there's really a performance advan
 
 ### Traversing a Tree
 
+Both ways of finding something can be viable, and in both approaches, your worst case time complexity is O(n) - if you have to visit all nodes before finding the value you want.
+
+It depends on how your data is structured, what kind of data is in the tree, and which approach is *most likely* to bring you the best and fastest result.
+
+If you're typically going to be looking for deeply nested values, then a depth first search would make more sense. For example, a filesystem where you're only ever able to search *file names* and not folders.
+
+However, a tree with not a lot of deeply nested nodes but more breadth, it would make more sense to perform a breadth-first search.
+
 ##### Depth-First
 
-Dig into the tree first and explore sibling trees step by step
+Dig into the tree first and explore sibling trees step by step.
 
 ##### Breadth-First
 
